@@ -7,11 +7,14 @@
 //============================================================================
 
 #include "HIP-Hello-World.h"
+#include "say_hello_cpu.h"
 #include <iostream>
 
 int main(int argc, char** argv) {
-    std::cout << "From the CPU: Hello World!!!" << std::endl;
+    say_hello_cpu();
+
     hipDeviceSynchronize();
+
     gpuHello<<<1,64>>>();
     hipDeviceSynchronize();
 
