@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH -A stf006
-#SBATCH -J hello_world_test
+#SBATCH -J hello_world_gpu_cmake_test
 #SBATCH -o %x-%j.out
 #SBATCH -t 00:05:00
 #SBATCH -p batch
@@ -51,14 +51,14 @@ function copy_binary_to_run_dir () {
 #-----------------------------------------------------
 function run_binary () {
     local -r my_run_dir=${1}
-    local -r binary=${2} 
+    local -r my_binary=${2} 
     cd ${my_run_dir}
-    srun -n 1 --gpus 1 ${binary} 
+    srun -n 1 --gpus 1 ${my_binary} 
 }
 
 declare -r run_dir="${MEMBERWORK}"/stf006/HIP-HELLO-WORLD
-declare -r path_to_binary="${HOME}/sw/HIPHelloWorld/bin/hip-hello-world"
-declare -r binary=$(basename "${HOME}/sw/HIPHelloWorld/bin/hip-hello-world")
+declare -r path_to_binary="${HOME}/sw/HIPHelloWorld/bin/hiphelloworld"
+declare -r binary=$(basename "${HOME}/sw/HIPHelloWorld/bin/hiphelloworld")
 
 create_empty_dir "${run_dir}"
 copy_binary_to_run_dir "${run_dir}" "${path_to_binary}"

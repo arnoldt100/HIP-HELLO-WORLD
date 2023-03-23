@@ -19,6 +19,12 @@
     project(${my_project_name})
 
     #-----------------------------------------------------
+    # Turn on verbose debugging.                         -
+    #                                                    -
+    #-----------------------------------------------------
+    set(CMAKE_VERBOSE_MAKEFILE ON)
+
+    #-----------------------------------------------------
     # Make available the project cmake modules.          -
     #                                                    -
     #-----------------------------------------------------
@@ -31,6 +37,6 @@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/say_hello_cpu")
-# add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/say_hello_gpu")
-# add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/hello_world_main")
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/say_hello_gpu")
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/hello_world_main")
 
