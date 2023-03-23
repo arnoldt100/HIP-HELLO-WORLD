@@ -118,6 +118,8 @@
 add_library( ${target} STATIC 
              "")
 
+target_link_libraries(${target})
+
 #-----------------------------------------------------
 #                                                    -
 # We associate the source files with the target.     -
